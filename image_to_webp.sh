@@ -9,7 +9,7 @@ NC='\033[0m' # 無色
 
 # 檢查必要命令是否安裝，如果沒有安裝則提示用戶安裝
 check_command() {
-    if ! command -v ${1} 1>/dev/null; then
+    if ! command -v cwebp 1>/dev/null; then
         read -r -e -p "本腳本需要安裝 ${1}，請確認是否安裝並繼續執行？(Y/N)：" continue
         case $continue in
         Y | y)
@@ -28,7 +28,7 @@ check_command() {
 }
 
 # 檢查列表中的命令
-commands_to_check=("cwebp")
+commands_to_check=("webp")
 for cmd in "${commands_to_check[@]}"; do
     check_command "$cmd"
 done
